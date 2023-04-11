@@ -92,7 +92,7 @@ class LaguController extends Controller
             'tanggal_rilis' => 'required|date'
         ]);
 
-        $data = LaguModel::where('id', '=', $id)->update($request->except(['_token']));
+        $data = LaguModel::where('id', '=', $id)->update($request->except(['_token', '_method']));
         return redirect('lagu')
             ->with('success', 'Lagu Berhasil di Update');
     }
