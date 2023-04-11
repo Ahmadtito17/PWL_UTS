@@ -43,6 +43,7 @@
             <th>Artis</th>
             <th>Genre</th>
             <th>Tanggal Rilis</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -54,8 +55,9 @@
                     <td>{{$m->artis}}</td>
                     <td>{{$m->genre}}</td>
                     <td>{{$m->tanggal_rilis}}</td>
-                    <td>
-                      <a href="{{ url('/lagu/'. $m->id.'/edit') }}" class="btn btn-sm btn-warning">Edit</a>
+                    <td style="display: flex">
+                    
+                      <a href="{{ url('/lagu/'. $m->id.'/edit') }}" class="btn btn-sm btn-warning mr-2">Edit</a>
                       <form method="POST" action="{{ url('/lagu/'.$m->id) }}">
                         @csrf
                         @method('DELETE')
