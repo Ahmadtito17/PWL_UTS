@@ -43,11 +43,11 @@ class LaguController extends Controller
             'judul' => 'required|string|max:50',
             'artis' => 'required|string|max:50',
             'genre' => 'required|string|max:30',
-            'tanggal_lahir' => 'required|date'
+            'tanggal_rilis' => 'required|date'
         ]);
 
         $data = LaguModel::create($request->except(['_token']));
-        return redirect('lagu')
+        return redirect('/lagu')
             ->with('success', 'Lagu Berhasil Ditambahkan');
     }
 
