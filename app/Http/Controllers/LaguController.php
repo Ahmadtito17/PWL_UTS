@@ -89,7 +89,7 @@ class LaguController extends Controller
             'judul' => 'required|string|max:50',
             'artis' => 'required|string|max:50',
             'genre' => 'required|string|max:30',
-            'tanggal_lahir' => 'required|date'
+            'tanggal_rilis' => 'required|date'
         ]);
 
         $data = LaguModel::where('id', '=', $id)->update($request->except(['_token']));
