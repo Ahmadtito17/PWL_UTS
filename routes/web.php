@@ -24,3 +24,6 @@ Route::get('/dashboard', [DashboardController::class, 'index']);
 Route::get('/', [DashboardController::class, 'index']);
 Route::resource('/lagu', LaguController::class)->parameter('lagu', 'id');
 Route::resource('/game', GameController::class)->parameter('game', 'id');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
