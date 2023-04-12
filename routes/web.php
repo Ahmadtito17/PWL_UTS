@@ -18,15 +18,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/dashboard', [DashboardController::class, 'index']);
-Route::get('/', [DashboardController::class, 'index']);
-Route::resource('/lagu', LaguController::class)->parameter('lagu', 'id');
-Route::resource('/game', GameController::class)->parameter('game', 'id');
 Auth::routes();
 Route::get('/logout', [LoginController::class, 'logout']);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::middleware(['auth'])->group(function(){
+    Route::get('/', function () {
+        return view('welcome');
+    });
+    
+    Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/', [DashboardController::class, 'index']);
+    Route::resource('/lagu', LaguController::class)->parameter('lagu', 'id');
+    Route::resource('/game', GameController::class)->parameter('game', 'id');
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+});
+
