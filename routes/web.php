@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\LaguController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,5 +27,6 @@ Route::get('/', [DashboardController::class, 'index']);
 Route::resource('/lagu', LaguController::class)->parameter('lagu', 'id');
 Route::resource('/game', GameController::class)->parameter('game', 'id');
 Auth::routes();
+Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
