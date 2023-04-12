@@ -36,25 +36,25 @@
                  with font-awesome or any other icon font library -->
             <li class="nav-item">
               <a href="{{ url('/dashboard') }}" class="nav-link">
-                <i class=""></i>
+                <i class="nav-icon fas fa-user"></i>
                 <p>Dashboard</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="{{ url('/lagu') }}" class="nav-link">
-                <i class=""></i>
+                <i class="nav-icon fas fa-headphones"></i>
                 <p>Lagu</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="{{ url('/game') }}" class="nav-link">
-                <i class=""></i>
+                <i class="nav-icon fas fa-gamepad"></i>
                 <p>Game</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="{{ url('/logout') }}" class="nav-link">
-                <i class=""></i>
+                <i class="nav-icon fas fa-sign-out-alt"></i>
                 <p>Logout</p>
               </a>
             </li>
