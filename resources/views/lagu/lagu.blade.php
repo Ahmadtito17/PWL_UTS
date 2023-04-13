@@ -63,11 +63,33 @@
                             <td style="display: flex">
                               <a href="{{ url('/lagu/'. $m->id.'/edit')}}" class="btn btn-sm btn-warning mr-2">Edit</a>
 
-                              <form method="POST" action="{{ url('/lagu/'.$m->id)}}">
+                              <form method="POST" action="{{ url('/lagu/'.$m->id) }}">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
-                              </form>
+                                <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#hapusModal">Hapus</button>
+                            
+                                <!-- Modal -->
+                                <div class="modal fade" id="hapusModal" tabindex="-1" role="dialog" aria-labelledby="hapusModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="hapusModalLabel">Konfirmasi Hapus</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Apakah Anda yakin ingin menghapus data ini?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                                <button type="submit" class="btn btn-danger">Ya, Hapus</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            
                             </td>
                           </tr>
                         @endforeach
@@ -76,6 +98,8 @@
                       @endif
                     </tbody>
                   </table>
+                  <div class="d-flex justify-content-center mt-2">
+                    {{ $lagu->links() }}
                 </div>
                 <!-- /.card-body -->
               </div>
