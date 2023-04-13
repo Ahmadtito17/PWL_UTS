@@ -29,7 +29,7 @@
             <div class="col">
   
               <!-- Profile Image -->
-              <div class="card card-danger card-outline">
+              <div class="card card-pink card-outline">
                 <div class="card-body">
 
                   <a href="{{url('game/create')}}" class="btn btn-sm btn-success my-2">Tambah Data</a>
@@ -37,7 +37,7 @@
                   <form action="{{ url('game') }}" method="GET" class="form-inline my-2 my-lg-0">
                     
                     <input class="form-control mr-sm-2 my-2" type="search" name="query" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
                   </form>
 
                   <table class="table table-bordered table-striped">
