@@ -15,12 +15,7 @@ class GameController extends Controller
      */
     public function index()
     {
-        if(\Illuminate\Support\Facades\Request::get('query') !== null){
-            $query = \Illuminate\Support\Facades\Request::get('query');
-            $gm = GameModel::where('creator_game', 'LIKE', '%'.$query.'%')->paginate(5);
-        } else {
-            $gm = GameModel::all();
-        }
+        $gm = GameModel::paginate(5);
         return view('game.game')
                     ->with('gm', $gm);
 

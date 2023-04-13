@@ -15,7 +15,7 @@ class LaguController extends Controller
      */
     public function index()
     {
-        $lagu = LaguModel::paginate(1);
+        $lagu = LaguModel::paginate(5);
 
         return view('lagu.lagu', ['lagu' => $lagu])
                     ->with('lagu', $lagu);
