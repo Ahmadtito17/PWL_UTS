@@ -15,7 +15,12 @@ class LaguController extends Controller
      */
     public function index()
     {
-        $lagu = LaguModel::all();
+        if(\Illuminate\Support\Facades\Request::get('query') !== null){
+            $query = \Illuminate\Support\Facades\Request::get('query');
+            $lagu = LaguModel::where('judul', 'LIKE', '%'.$query.'%')->paginate(5);
+        } else {
+            $lagu = LaguModel::all();
+        }
         return view('lagu.lagu')
                     ->with('lagu', $lagu);
     }
